@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const instructorSchema = {
   username: {
     type: String,
@@ -9,8 +10,8 @@ const instructorSchema = {
     type: String,
     required: true,
   },
-  email: { type: String },
-  country: { type: String },
+  email: { type: String, required: true },
+  country: { type: String, required: true },
   money_owed: { type: Number, default: 0, required: true },
   rating: {
     type: Number,
@@ -18,7 +19,7 @@ const instructorSchema = {
     required: true,
   },
   biography: { type: String },
-  courses: { type: [Number] },
+  courses: { type: [{ type: mongoose.Types.ObjectId, ref: "courses" }] },
 };
 
 const instructor = mongoose.model("instructor", instructorSchema);
