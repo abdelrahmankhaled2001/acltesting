@@ -20,7 +20,23 @@ const indTraineeSchema = {
   },
   email: { type: String },
   country: { type: String },
-  courses: { type: [Number] },
+  courses: { type: [{ type: mongoose.Types.ObjectId, ref: "courses" }] },
+  courseRating: {
+    type: [
+      {
+        course: { type: mongoose.Types.ObjectId, ref: "courses" },
+        rating: Number,
+      },
+    ],
+  },
+  instructorRating: {
+    type: [
+      {
+        instructor: { type: mongoose.Types.ObjectId, ref: "Instructor" },
+        rating: Number,
+      },
+    ],
+  },
   creditCardDetails: {
     cardNumber: String,
     cardHolderName: String,
