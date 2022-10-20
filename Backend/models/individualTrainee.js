@@ -24,7 +24,8 @@ const indTraineeSchema = {
   creditCardDetails: {
     cardNumber: String,
     cardHolderName: String,
-    expiryDate: Date,
+    expiryDateYear: { type: Number, max: 9999 },
+    expiryDateMonth: { type: Number, max: 12 },
   },
 };
 
