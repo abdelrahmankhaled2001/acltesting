@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const instructorSchema = {
+
+const instructorSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -9,8 +10,8 @@ const instructorSchema = {
     type: String,
     required: true,
   },
-  email: { type: String },
-  country: { type: String },
+  email: { type: String, required: true },
+  country: { type: String, required: true },
   money_owed: { type: Number, default: 0, required: true },
   rating: {
     type: Number,
@@ -18,8 +19,10 @@ const instructorSchema = {
     required: true,
   },
   biography: { type: String },
-  courses: { type: [Number] },
-};
+  courses: { type: [{ type: mongoose.Types.ObjectId, ref: "courses" }] },
+});
 
-const instructor = mongoose.model("Instructor", instructorSchema);
-module.exports = instructor;
+
+const Instructor = mongoose.model("instructor", instructorSchema);
+module.exports = Instructor;
+
