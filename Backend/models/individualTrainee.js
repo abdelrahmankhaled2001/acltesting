@@ -45,5 +45,5 @@ const indTraineeSchema = new mongoose.Schema({
   },
 });
 
-const instructor = mongoose.model("IndvidualTrainee", indTraineeSchema);
-module.exports = instructor;
+const IndividualTrainee = mongoose.model("IndvidualTrainee", indTraineeSchema);
+module.exports = IndividualTrainee;
