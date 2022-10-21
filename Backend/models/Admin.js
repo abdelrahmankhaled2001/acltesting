@@ -11,4 +11,5 @@ const adminShema = new mongoose.Shema({
     required: true,
   },
 });
-module.exports = mongoose.model("Admin", adminShema);
+const Admin = mongoose.model("Admin", adminShema);
+module.exports = Admin;
