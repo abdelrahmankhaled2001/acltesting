@@ -11,3 +11,4 @@ const adminShema = new mongoose.Shema({
     required: true,
   },
 });
+module.exports = mongoose.model("Admin", adminShema);
