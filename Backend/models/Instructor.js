@@ -22,5 +22,5 @@ const instructorSchema = new mongoose.Schema({
   courses: { type: [{ type: mongoose.Types.ObjectId, ref: "courses" }] },
 });
 
-const instructor = mongoose.model("instructor", instructorSchema);
-module.exports = instructor;
+const Instructor = mongoose.model("instructor", instructorSchema);
+module.exports = Instructor;
