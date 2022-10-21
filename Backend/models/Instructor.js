@@ -21,5 +21,5 @@ const instructorSchema = {
   courses: { type: [Number] },
 };
 
-const instructor = mongoose.model("instructor", instructorSchema);
+const instructor = mongoose.model("Instructor", instructorSchema);
 module.exports = instructor;
