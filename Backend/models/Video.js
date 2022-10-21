@@ -9,5 +9,5 @@ const videoSchema = {
         required: True,
     }
 };
-const video = mongoose .model ("video",videoSchema);
-module.exports = video;
+const Video = mongoose .model ("video",videoSchema);
+module.exports = Video;
