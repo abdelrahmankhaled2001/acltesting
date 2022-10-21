@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const indTraineeSchema = {
+const indTraineeSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -20,11 +20,11 @@ const indTraineeSchema = {
   },
   email: { type: String },
   country: { type: String },
-  courses: { type: [{ type: mongoose.Types.ObjectId, ref: "courses" }] },
+  courses: { type: [{ type: mongoose.Types.ObjectId, ref: "Courses" }] },
   courseRating: {
     type: [
       {
-        course: { type: mongoose.Types.ObjectId, ref: "courses" },
+        course: { type: mongoose.Types.ObjectId, ref: "Courses" },
         rating: Number,
       },
     ],
@@ -43,7 +43,7 @@ const indTraineeSchema = {
     expiryDateYear: { type: Number, max: 9999 },
     expiryDateMonth: { type: Number, max: 12 },
   },
-};
+});
 
-const instructor = mongoose.model("instructor", instructorSchema);
-module.exports = instructor;
+const IndividualTrainee = mongoose.model("IndvidualTrainee", indTraineeSchema);
+module.exports = IndividualTrainee;
